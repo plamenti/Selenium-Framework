@@ -8,4 +8,5 @@ public class LoginPageConstants {
 	public static final String VALID_PASSWORD = PropertiesManager.getPageProperty("valid.password");
 	public static final String INVALID_EMAIL = PropertiesManager.getPageProperty("invalid.email");
 	public static final String INVALID_PASSWORD = PropertiesManager.getPageProperty("invalid.password");
+	public static final String PATH_TO_CSV_FILE  = PropertiesManager.getPageProperty("csvDataFilePath");
 }

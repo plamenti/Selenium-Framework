@@ -1,65 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="41620" started-at="2018-01-07T16:29:13Z" finished-at="2018-01-07T16:29:55Z">
+  <suite name="Surefire suite" duration-ms="66365" started-at="2018-01-07T22:33:45Z" finished-at="2018-01-07T22:34:52Z">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="41620" started-at="2018-01-07T16:29:13Z" finished-at="2018-01-07T16:29:55Z">
+    <test name="Surefire test" duration-ms="66365" started-at="2018-01-07T22:33:45Z" finished-at="2018-01-07T22:34:52Z">
       <class name="com.plamenti.selenium_framework.tests.HomePageTestsIT">
-        <test-method status="PASS" signature="instantiateDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="instantiateDriver" is-config="true" duration-ms="16" started-at="2018-01-07T18:29:13Z" finished-at="2018-01-07T18:29:13Z">
+        <test-method status="PASS" signature="instantiateDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="instantiateDriver" is-config="true" duration-ms="0" started-at="2018-01-08T00:33:45Z" finished-at="2018-01-08T00:33:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- instantiateDriver -->
-        <test-method status="PASS" signature="homePageLoginWithEmptyEmailTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="homePageLoginWithEmptyEmailTestIT" duration-ms="6164" started-at="2018-01-07T18:29:13Z" finished-at="2018-01-07T18:29:19Z">
+        <test-method status="PASS" signature="homePageLoginWithEmptyEmailTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="homePageLoginWithEmptyEmailTestIT" duration-ms="6099" started-at="2018-01-08T00:33:45Z" finished-at="2018-01-08T00:33:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageLoginWithEmptyEmailTestIT -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="quitDriver" is-config="true" duration-ms="678" started-at="2018-01-07T18:29:19Z" finished-at="2018-01-07T18:29:20Z">
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="697" started-at="2018-01-08T00:33:52Z" finished-at="2018-01-08T00:33:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method status="PASS" signature="homePageLoginWithEmptyPasswordTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="homePageLoginWithEmptyPasswordTestIT" duration-ms="5137" started-at="2018-01-07T18:29:20Z" finished-at="2018-01-07T18:29:25Z">
+        <test-method status="PASS" signature="homePageLoginWithEmptyPasswordTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="homePageLoginWithEmptyPasswordTestIT" duration-ms="5031" started-at="2018-01-08T00:33:52Z" finished-at="2018-01-08T00:33:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageLoginWithEmptyPasswordTestIT -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="quitDriver" is-config="true" duration-ms="682" started-at="2018-01-07T18:29:25Z" finished-at="2018-01-07T18:29:26Z">
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="667" started-at="2018-01-08T00:33:57Z" finished-at="2018-01-08T00:33:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method status="PASS" signature="homePageLoginWithInvalidEmailAndValidPasswordTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="homePageLoginWithInvalidEmailAndValidPasswordTestIT" duration-ms="6379" started-at="2018-01-07T18:29:26Z" finished-at="2018-01-07T18:29:32Z">
+        <test-method status="PASS" signature="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT(java.lang.String, java.lang.String)[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT" duration-ms="8502" started-at="2018-01-08T00:33:58Z" data-provider="provideData" finished-at="2018-01-08T00:34:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[asdiu@asd.sd]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[pssssa]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homePageLoginWithInvalidEmailAndInvalidPasswordTestIT -->
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="700" started-at="2018-01-08T00:34:07Z" finished-at="2018-01-08T00:34:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+        <test-method status="PASS" signature="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT(java.lang.String, java.lang.String)[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT" duration-ms="6261" started-at="2018-01-08T00:34:07Z" data-provider="provideData" finished-at="2018-01-08T00:34:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ewkjk@czx.vf]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[fddgdg]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homePageLoginWithInvalidEmailAndInvalidPasswordTestIT -->
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="669" started-at="2018-01-08T00:34:13Z" finished-at="2018-01-08T00:34:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+        <test-method status="PASS" signature="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT(java.lang.String, java.lang.String)[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT" duration-ms="6283" started-at="2018-01-08T00:34:14Z" data-provider="provideData" finished-at="2018-01-08T00:34:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[gfdfg@sds.hg]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[dadsdr]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- homePageLoginWithInvalidEmailAndInvalidPasswordTestIT -->
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="688" started-at="2018-01-08T00:34:20Z" finished-at="2018-01-08T00:34:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+        <test-method status="PASS" signature="homePageLoginWithInvalidEmailAndValidPasswordTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="homePageLoginWithInvalidEmailAndValidPasswordTestIT" duration-ms="6423" started-at="2018-01-08T00:34:21Z" finished-at="2018-01-08T00:34:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageLoginWithInvalidEmailAndValidPasswordTestIT -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="quitDriver" is-config="true" duration-ms="715" started-at="2018-01-07T18:29:32Z" finished-at="2018-01-07T18:29:33Z">
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="668" started-at="2018-01-08T00:34:28Z" finished-at="2018-01-08T00:34:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method status="PASS" signature="homePageLoginWithValidCredentialsTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="homePageLoginWithValidCredentialsTestIT" duration-ms="8610" started-at="2018-01-07T18:29:33Z" finished-at="2018-01-07T18:29:42Z">
+        <test-method status="PASS" signature="homePageLoginWithValidCredentialsTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="homePageLoginWithValidCredentialsTestIT" duration-ms="8984" started-at="2018-01-08T00:34:28Z" finished-at="2018-01-08T00:34:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageLoginWithValidCredentialsTestIT -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="quitDriver" is-config="true" duration-ms="697" started-at="2018-01-07T18:29:42Z" finished-at="2018-01-07T18:29:42Z">
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="699" started-at="2018-01-08T00:34:37Z" finished-at="2018-01-08T00:34:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method status="PASS" signature="homePageLoginWithValidEmailAndInvalidPasswordTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="homePageLoginWithValidEmailAndInvalidPasswordTestIT" duration-ms="6485" started-at="2018-01-07T18:29:42Z" finished-at="2018-01-07T18:29:49Z">
+        <test-method status="PASS" signature="homePageLoginWithValidEmailAndInvalidPasswordTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="homePageLoginWithValidEmailAndInvalidPasswordTestIT" duration-ms="6370" started-at="2018-01-08T00:34:38Z" finished-at="2018-01-08T00:34:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- homePageLoginWithValidEmailAndInvalidPasswordTestIT -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="quitDriver" is-config="true" duration-ms="692" started-at="2018-01-07T18:29:49Z" finished-at="2018-01-07T18:29:49Z">
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="695" started-at="2018-01-08T00:34:44Z" finished-at="2018-01-08T00:34:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method status="PASS" signature="loginFormTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="loginFormTestIT" duration-ms="4699" started-at="2018-01-07T18:29:49Z" finished-at="2018-01-07T18:29:54Z">
+        <test-method status="PASS" signature="loginFormTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="loginFormTestIT" duration-ms="6189" started-at="2018-01-08T00:34:45Z" finished-at="2018-01-08T00:34:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginFormTestIT -->
-        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="quitDriver" is-config="true" duration-ms="663" started-at="2018-01-07T18:29:54Z" finished-at="2018-01-07T18:29:55Z">
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="quitDriver" is-config="true" duration-ms="676" started-at="2018-01-08T00:34:51Z" finished-at="2018-01-08T00:34:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quitDriver -->
-        <test-method status="PASS" signature="closeDriveObjects()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@668bc3d5]" name="closeDriveObjects" is-config="true" duration-ms="0" started-at="2018-01-07T18:29:55Z" finished-at="2018-01-07T18:29:55Z">
+        <test-method status="PASS" signature="closeDriveObjects()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@2ed94a8b]" name="closeDriveObjects" is-config="true" duration-ms="0" started-at="2018-01-08T00:34:54Z" finished-at="2018-01-08T00:34:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeDriveObjects -->

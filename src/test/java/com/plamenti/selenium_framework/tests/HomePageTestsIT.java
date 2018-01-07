@@ -2,11 +2,14 @@ package com.plamenti.selenium_framework.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.plamenti.selenium_framework.base.BaseTestAbstract;
 import com.plamenti.selenium_framework.constants.LoginPageConstants;
 import com.plamenti.selenium_framework.pages.PageFactory;
+import com.plamenti.selenium_framework.utils.CsvDataProvider;
+
 
 //@Listeners(ScreenShotListener.class)
 public class HomePageTestsIT extends BaseTestAbstract {
@@ -24,13 +27,13 @@ public class HomePageTestsIT extends BaseTestAbstract {
 		assertThat(loginPage.loginPasswordFieldIsPresent()).as("Login password field is present").isTrue();
 		assertThat(loginPage.loginButtonIsPresent()).as("Login button is present").isTrue();
 	}
-	
+
 	@Test
 	public void homePageLoginWithValidCredentialsTestIT() {
 		// Given
-		homePage =  PageFactory.getHomePage();
+		homePage = PageFactory.getHomePage();
 		homePage.goTo();
-		
+
 		loginPage = PageFactory.getLoginPage();
 		// When
 		loginPage.enterEmail(LoginPageConstants.VALID_EMAIL).enterPassword(LoginPageConstants.VALID_PASSWORD)
@@ -55,7 +58,6 @@ public class HomePageTestsIT extends BaseTestAbstract {
 		loginPage = PageFactory.getLoginPage();
 		loginPage.enterEmail(LoginPageConstants.INVALID_EMAIL).enterPassword(LoginPageConstants.VALID_PASSWORD)
 				.andLogin();
-		
 
 		// Then
 		assertThat(loginPage.emailOrPasswordErrorMessageIsPresent()).isTrue();
@@ -109,5 +111,28 @@ public class HomePageTestsIT extends BaseTestAbstract {
 		// Then
 		assertThat(loginPage.passwordErrorMessageIsPresent()).isTrue();
 		assertThat(loginPage.forgotPasswordLinkIsPresent()).isTrue();
+	}
+
+	@Test(dataProvider = "provideData")
+	public void homePageLoginWithInvalidEmailAndInvalidPasswordTestIT(String email, String password) {
+		// Given
+		homePage = PageFactory.getHomePage();
+		homePage.goTo();
+
+		// When
+		loginPage = PageFactory.getLoginPage();
+		loginPage.enterEmail(email).enterPassword(password).andLogin();
+		
+		// Then
+		assertThat(loginPage.emailOrPasswordErrorMessageIsPresent()).isTrue();
+		assertThat(loginPage.loginFormIsPresent()).isTrue();
+		assertThat(loginPage.forgotPasswordErrorLinkIsPresent()).isTrue();
+		assertThat(loginPage.forgotPasswordLinkIsPresent()).isTrue();
+	}
+
+	@DataProvider
+	public Object[][] provideData() {
+		
+		return CsvDataProvider.readData(LoginPageConstants.PATH_TO_CSV_FILE);
 	}
 }

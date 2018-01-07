@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report.xsd" name="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="42.164" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report.xsd" name="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="68.535" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_151\jre\bin"/>
@@ -64,10 +64,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="homePageLoginWithEmptyEmailTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.164"/>
-  <testcase name="homePageLoginWithEmptyPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="5.138"/>
-  <testcase name="homePageLoginWithInvalidEmailAndValidPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.378"/>
-  <testcase name="homePageLoginWithValidCredentialsTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="8.609"/>
-  <testcase name="homePageLoginWithValidEmailAndInvalidPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.486"/>
-  <testcase name="loginFormTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="4.698"/>
+  <testcase name="homePageLoginWithEmptyEmailTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.101"/>
+  <testcase name="homePageLoginWithEmptyPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="5.031"/>
+  <testcase name="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="8.503"/>
+  <testcase name="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.261"/>
+  <testcase name="homePageLoginWithInvalidEmailAndInvalidPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.283"/>
+  <testcase name="homePageLoginWithInvalidEmailAndValidPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.423"/>
+  <testcase name="homePageLoginWithValidCredentialsTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="8.985"/>
+  <testcase name="homePageLoginWithValidEmailAndInvalidPasswordTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.371"/>
+  <testcase name="loginFormTestIT" classname="com.plamenti.selenium_framework.tests.HomePageTestsIT" time="6.189"/>
 </testsuite>

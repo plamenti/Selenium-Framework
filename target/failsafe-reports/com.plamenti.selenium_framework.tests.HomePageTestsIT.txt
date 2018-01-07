@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.plamenti.selenium_framework.tests.HomePageTestsIT
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 42.164 s - in com.plamenti.selenium_framework.tests.HomePageTestsIT
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 68.535 s - in com.plamenti.selenium_framework.tests.HomePageTestsIT
