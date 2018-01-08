@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="6" total="7" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="6592" started-at="2018-01-08T05:47:12Z" finished-at="2018-01-08T05:47:19Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="6592" started-at="2018-01-08T05:47:12Z" finished-at="2018-01-08T05:47:19Z">
+      <class name="com.plamenti.selenium_framework.tests.HomePageTestsIT">
+        <test-method status="PASS" signature="instantiateDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@6a4f787b]" name="instantiateDriver" is-config="true" duration-ms="16" started-at="2018-01-08T07:47:12Z" finished-at="2018-01-08T07:47:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- instantiateDriver -->
+        <test-method status="PASS" signature="loginFormTestIT()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@6a4f787b]" name="loginFormTestIT" duration-ms="5890" started-at="2018-01-08T07:47:12Z" finished-at="2018-01-08T07:47:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginFormTestIT -->
+        <test-method status="PASS" signature="quitDriver()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@6a4f787b]" name="quitDriver" is-config="true" duration-ms="684" started-at="2018-01-08T07:47:18Z" finished-at="2018-01-08T07:47:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+        <test-method status="PASS" signature="closeDriveObjects()[pri:0, instance:com.plamenti.selenium_framework.tests.HomePageTestsIT@6a4f787b]" name="closeDriveObjects" is-config="true" duration-ms="0" started-at="2018-01-08T07:47:19Z" finished-at="2018-01-08T07:47:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriveObjects -->
+      </class> <!-- com.plamenti.selenium_framework.tests.HomePageTestsIT -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

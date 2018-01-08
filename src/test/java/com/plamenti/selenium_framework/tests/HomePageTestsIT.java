@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import com.plamenti.selenium_framework.base.BaseTestAbstract;
 import com.plamenti.selenium_framework.constants.LoginPageConstants;
-import com.plamenti.selenium_framework.pages.PageFactory;
+import com.plamenti.selenium_framework.pages.Pages;
 import com.plamenti.selenium_framework.utils.CsvDataProvider;
 
 
@@ -17,10 +17,10 @@ public class HomePageTestsIT extends BaseTestAbstract {
 	@Test
 	public void loginFormTestIT() {
 		// Given
-		homePage = PageFactory.getHomePage();
+		homePage = Pages.getHomePage();
 		// When
 		homePage.goTo();
-		loginPage = PageFactory.getLoginPage();
+		loginPage = Pages.getLoginPage();
 		// Then
 		assertThat(loginPage.loginFormIsPresent()).as("Login form is present").isTrue();
 		assertThat(loginPage.loginEmailFieldIsPresent()).as("Login email field is present").isTrue();
@@ -31,15 +31,15 @@ public class HomePageTestsIT extends BaseTestAbstract {
 	@Test
 	public void homePageLoginWithValidCredentialsTestIT() {
 		// Given
-		homePage = PageFactory.getHomePage();
+		homePage = Pages.getHomePage();
 		homePage.goTo();
 
-		loginPage = PageFactory.getLoginPage();
+		loginPage = Pages.getLoginPage();
 		// When
 		loginPage.enterEmail(LoginPageConstants.VALID_EMAIL).enterPassword(LoginPageConstants.VALID_PASSWORD)
 				.andLogin();
 		// Then
-		mainNavigation = PageFactory.getMainNavigation();
+		mainNavigation = Pages.getMainNavigation();
 		assertThat(mainNavigation.mainNavigationIsPresent()).isTrue();
 		assertThat(mainNavigation.homeButtonIsPresent()).isTrue();
 		assertThat(mainNavigation.promotionsButtonIsPresent()).isTrue();
@@ -51,11 +51,11 @@ public class HomePageTestsIT extends BaseTestAbstract {
 	@Test
 	public void homePageLoginWithInvalidEmailAndValidPasswordTestIT() {
 		// Given
-		homePage = PageFactory.getHomePage();
+		homePage = Pages.getHomePage();
 		homePage.goTo();
 
 		// When
-		loginPage = PageFactory.getLoginPage();
+		loginPage = Pages.getLoginPage();
 		loginPage.enterEmail(LoginPageConstants.INVALID_EMAIL).enterPassword(LoginPageConstants.VALID_PASSWORD)
 				.andLogin();
 
@@ -69,11 +69,11 @@ public class HomePageTestsIT extends BaseTestAbstract {
 	@Test
 	public void homePageLoginWithValidEmailAndInvalidPasswordTestIT() {
 		// Given
-		homePage = PageFactory.getHomePage();
+		homePage = Pages.getHomePage();
 		homePage.goTo();
 
 		// When
-		loginPage = PageFactory.getLoginPage();
+		loginPage = Pages.getLoginPage();
 		loginPage.enterEmail(LoginPageConstants.VALID_EMAIL).enterPassword(LoginPageConstants.INVALID_PASSWORD)
 				.andLogin();
 
@@ -87,11 +87,11 @@ public class HomePageTestsIT extends BaseTestAbstract {
 	@Test
 	public void homePageLoginWithEmptyEmailTestIT() {
 		// Given
-		homePage = PageFactory.getHomePage();
+		homePage = Pages.getHomePage();
 		homePage.goTo();
 
 		// When
-		loginPage = PageFactory.getLoginPage();
+		loginPage = Pages.getLoginPage();
 		loginPage.enterEmail("").enterPassword(LoginPageConstants.VALID_PASSWORD).andLogin();
 
 		// Then
@@ -101,11 +101,11 @@ public class HomePageTestsIT extends BaseTestAbstract {
 	@Test
 	public void homePageLoginWithEmptyPasswordTestIT() {
 		// Given
-		homePage = PageFactory.getHomePage();
+		homePage = Pages.getHomePage();
 		homePage.goTo();
 
 		// When
-		loginPage = PageFactory.getLoginPage();
+		loginPage = Pages.getLoginPage();
 		loginPage.enterEmail(LoginPageConstants.VALID_EMAIL).enterPassword("").andLogin();
 
 		// Then
@@ -116,11 +116,11 @@ public class HomePageTestsIT extends BaseTestAbstract {
 	@Test(dataProvider = "provideData")
 	public void homePageLoginWithInvalidEmailAndInvalidPasswordTestIT(String email, String password) {
 		// Given
-		homePage = PageFactory.getHomePage();
+		homePage = Pages.getHomePage();
 		homePage.goTo();
 
 		// When
-		loginPage = PageFactory.getLoginPage();
+		loginPage = Pages.getLoginPage();
 		loginPage.enterEmail(email).enterPassword(password).andLogin();
 		
 		// Then

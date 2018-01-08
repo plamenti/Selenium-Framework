@@ -76,7 +76,7 @@
 						<configuration>
 							<parallel>methods</parallel>
 							<threadCount>${threads}</threadCount>
-							<systemProperties>
+							<systemPropertyVariables>
 								<browser>${browser}</browser>
 								<screenshotDirectory>${project.build.directory}/screenshots</screenshotDirectory>
 								<videoDirectory>${project.build.directory}/videos</videoDirectory>
@@ -87,7 +87,7 @@
 								<desiredBrowserVersion>${browserVersion}</desiredBrowserVersion>
 								<homePageUrl>${homePageUrl}</homePageUrl>
 								<headless>${headlessBrowser}</headless>
-							</systemProperties>
+							</systemPropertyVariables>
 							<includes>**/*IT.java</includes>
 						</configuration>
 						<executions>

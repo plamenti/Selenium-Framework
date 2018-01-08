@@ -2,7 +2,7 @@ package com.plamenti.selenium_framework.pages;
 
 import com.plamenti.selenium_framework.pages.fragments.MainNavigation;
 
-public class PageFactory {
+public class Pages {
 	public static HomePage getHomePage() {
 		return new HomePage();
 	}
