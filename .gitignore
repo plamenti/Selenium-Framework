@@ -6,7 +6,6 @@ tmp/
 *.bak
 *.swp
 *~.nib
-*.properties
 .settings/
 .loadpath
 .recommenders
