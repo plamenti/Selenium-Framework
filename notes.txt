@@ -1,0 +1,120 @@
+DriverFactory is BaseTest
+
+Configuration setting parallel - it is set to methods. This will search through our project for methods that have the @Test annotation
+Configuration setting threadCount - it's default number is set to 1
+
+mvn clean install - will use the default count for threads
+mvn clean install -Dthreads=2 - will override the default value of the threads count to 2
+
+Added an <includes> configuration item to our pom.xml - <includes>**/*IT.java</includes>
+	This is because Maven will use maven-surefire-plugin to run files that have test at the start or end of their name. We don't want maven-surefire-plugin to pick up our tests; we want to use maven-failsafe-plugin instead. Note: **/*IT.java is default extension that maven-failsafe-plugin is looking for. Here is for set up to be more clear. Can be substituted with e.g. **/*MD.java or **/*AT.java
+
+WebDriverThread class deals with browser instantiation
+
+DriverFactory class deals with the marshaling of the threads.
+	ThreadLocal object to instantiate our WebDriverThread objects in separate threads
+	getDriver() method that uses the getDriver() method on the WebDriverThread object to pass each test a WebDriver instance it can use
+		This is to isolate each instance of WebDriver to make sure that there is no cross contamination between tests. Each instance of WebDriver is now safely locked away in its own thread.
+!!! Do not use in multi-thread && @AfterMethod - quite driver fails because it is quited yet
+	for (WebDriverThread webDriverThread : webDriverThreadPool) {
+			webDriverThread.quitDriver();
+		}
+!!!
+
+Multiple browser support
+Add new Maven property called browser and a new configuration setting inside our failsafe plugin configuration called systemPropertyVariables
+	Everything defined inside systemPropertyValues will become a system property, which will be available to your Selenium tests
+	By using a Maven variable to reference a Maven property so that we can dynamically change this value on the command line
+	How to run (the example is for a run with 2 threads): 
+		mvn clean install –Dthreads=2 - will run with default browser
+		mvn clean install –Dthreads=2 –Dbrowser=chrome - will run with Chrome
+		mvn clean install –Dthreads=2 –Dbrowser=whatever - will run with default browser and will log error for "Unknown driver specified"
+		
+TODO:
+Try Git hooks
+	First of all, we need to go to the SCM root folder (the place where we originally cloned our project). Git creates a hidden folder called .git that holds all the information about your project that Git needs to do its job. We are going to go into this folder, and then into the hooks sub folder: cd .git/hooks
+	Git has a series of predefined hook names. Whenever you perform a Git command, Git will have a look in the hooks folder to see if there are any files that match any predefined hook names that would be triggered as a result of the command. If there are matches Git will run them. We want to make sure that our project can be built, and all of our tests are run, before we push any code to Git. To make this happen we are going to add a file called pre-push. When that file is added we are going to populate it with the following content:
+		#!/usr/bin/env bash
+		mvn clean install
+	This hook will now be triggered every time we use the git push command. 
+	If you are a Windows user, you may be looking at the preceding script and thinking that it looks very much like something that you would put on a *nix system. Don't worry, Git for Windows installs Git bash, which it will use to interpret this script, so it will work on Windows as well.
+	
+	
+We have created a profile called selenium-tests. If we want to run this in isolation we can now use the following command:
+		mvn clean install –Pselenium-tests
+	You will also notice that we have added <activeByDefault>true</activeByDefault>; this will ensure that this profile is active if no profiles are specified on the command line, so you will find that the following command still works:
+		mvn clean install
+	This is to ensure that our tests are still run as part of a normal build, and the SCM hooks that we set up previously still do their job.
+	
+Extending our capabilities by using a Selenium Grid
+	add some properties that we can configure on the command line:
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- Dependency versions -->
+		<selenium.version>2.45.0</selenium.version>
+		<!-- Configurable variables -->
+		<threads>1</threads>
+		<browser>firefox</browser>
+		<overwrite.binaries>false</overwrite.binaries>
+		<remote>false</remote>
+		<seleniumGridURL/>
+		<platform/>
+		<browserVersion/>
+	</properties>
+the seleniumGridURL element is blank because I don't know your Selenium Grid URL, but you can give this a value if you want. The same applies to platform and browserVersion. Next we need to make sure these properties are read in as system properties so we need to modify our maven-failsafe-plugin configuration:
+	<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-failsafe-plugin</artifactId>
+    <version>2.17</version>
+	<configuration>
+        <parallel>methods</parallel>
+        <threadCount>${threads}</threadCount>
+        <systemProperties>
+            <browser>${browser}</browser>
+            <remoteDriver>${remote}</remoteDriver>
+            <gridURL>${seleniumGridURL}</gridURL>
+            <desiredPlatform>${platform}</desiredPlatform>
+            <desiredBrowserVersion>${browserVersion}
+            </desiredBrowserVersion>
+            <!--Set properties passed in by the driver binary 
+            downloader-->
+            <phantomjs.binary.path>${phantomjs.binary.path}</phantomjs.binary.path>
+            <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+            <webdriver.ie.driver>${webdriver.ie.driver}</webdriver.ie.driver>
+            <webdriver.opera.driver>${webdriver.opera.driver}</webdriver.opera.driver>
+        </systemProperties>
+        <includes>
+            <include>**/*WD.java</include>
+        </includes>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+This will again make our properties available to our test code
+
+The easiest way to test this is to set up a free account with a Selenium Grid provider such as Sauce Labs (https://saucelabs.com) and run your tests against them. To do that, put the following into your command line (obviously you'll need to supply your own Sauce Labs username and access key for this to work):
+	mvn clean install -Dremote=true -DseleniumGridUrl=http://{username}:{accessKey}@ondemand.saucelabs.com:80/wd/hub -Dplatform=xp -Dbrowser=firefox -DbrowserVersion=33
+	
+A picture paints a thousand words
+	create a package called listeners
+	implement a custom listener for TestNG that will detect a test failure and then capture a screenshot for us
+	
+The first thing that you will notice is that it has a try-catch wrapping the whole method. While we do want a screenshot to show us what has gone wrong, we probably don't want to kill our test run if we are unable to capture it or write a screenshot to disk for some reason. To make sure that we don't disrupt the test run we catch the error, and log it out to the console for future reference. We then carry on with what we were doing before.
+You cannot cast all driver implementations in Selenium into a TakesScreenshot object. As a result we capture the ClassCastException for driver implementations that cannot be cast into a TakesScreenshot object and augment them instead. We don't just augment everything because a driver object that doesn't need to be augmented will throw an error if you try. It is usually RemoteWebDriver instances that need to be augmented. Apart from augmenting the driver object when required, the main job of this function is to generate a filename for the screenshot.
+While running tests with RemoteWebDriver or Selenium Grid, it is not possible to take the screenshots, as the TakesScreenshot interface is not implemented in RemoteWebDriver.
+However, we can use the Augmenter class, which adds the TakesScreenshot interface to the remote driver instance.
+The Augmenter class enhances the RemoteWebDriver by adding various interfaces to it, including the TakesScreenshot interface.
+
+Maven displays a stack trace by using the –e switch:
+	mvn clean install -e
+
+
+
+
